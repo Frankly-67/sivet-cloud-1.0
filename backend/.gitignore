@@ -1,0 +1,17 @@
+# Dependencias instaladas por npm (se regeneran con "npm install", no deben subirse al repo)
+node_modules/
+
+# Variables de entorno (contienen credenciales sensibles: URI de MongoDB, JWT_SECRET, etc.)
+.env
+
+# Logs generados por npm o por la app en caso de errores
+npm-debug.log*
+*.log
+
+# Archivos de configuración de editores/SO que no aportan al proyecto
+.DS_Store
+.vscode/
+
+# Carpeta de compilación/artefactos (por si en el futuro se agrega un build step)
+dist/
+build/

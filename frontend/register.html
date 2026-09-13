@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <title>SIVET CLOUD - Crear cuenta</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } };
+  </script>
+</head>
+<body
+  class="font-sans text-gray-800 antialiased min-h-screen flex items-center justify-center p-4"
+  style="background-image: url('images/fondo.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+>
+
+  <div class="w-full max-w-sm bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+
+    <div class="text-center mb-8">
+      <img src="images/logo.png" alt="SIVET CLOUD" class="h-20 w-auto mx-auto mb-2" />
+      <h1 class="text-xl font-semibold text-gray-900 mt-2">Crear cuenta</h1>
+      <p class="text-sm text-gray-500 mt-1">Regístrate para ver las citas y el historial médico de tu mascota</p>
+    </div>
+
+    <form id="register-form" class="space-y-4">
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre completo</label>
+        <input
+          type="text" id="name" name="name" required
+          placeholder="Carlos Pérez"
+          class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo electrónico</label>
+        <input
+          type="email" id="email" name="email" required
+          placeholder="tucorreo@ejemplo.com"
+          class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+      </div>
+
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
+        <div class="relative">
+          <input
+            type="password" id="password" name="password" required minlength="6"
+            placeholder="Mínimo 6 caracteres"
+            class="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+          <button
+            type="button" id="toggle-password"
+            class="absolute inset-y-0 right-0 flex items-center px-3 text-gray-400 hover:text-gray-600 focus:outline-none"
+            aria-label="Mostrar contraseña"
+          >
+            <svg id="toggle-password-icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <label for="confirm-password" class="block text-sm font-medium text-gray-700 mb-1">Confirmar contraseña</label>
+        <div class="relative">
+          <input
+            type="password" id="confirm-password" name="confirm-password" required minlength="6"
+            placeholder="Repite tu contraseña"
+            class="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+          <button
+            type="button" id="toggle-confirm-password"
+            class="absolute inset-y-0 right-0 flex items-center px-3 text-gray-400 hover:text-gray-600 focus:outline-none"
+            aria-label="Mostrar contraseña"
+          >
+            <svg id="toggle-confirm-password-icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <p id="error-message" class="text-sm text-red-600 min-h-[1em]"></p>
+
+      <button
+        type="submit"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm rounded-lg py-2.5 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      >
+        Crear cuenta
+      </button>
+    </form>
+
+    <p class="text-center text-sm text-gray-500 mt-6">
+      ¿Ya tienes cuenta?
+      <a href="index.html" class="text-blue-600 hover:underline font-medium">Inicia sesión</a>
+    </p>
+  </div>
+
+  <!-- Mostrar/ocultar contraseña en ambos campos. Es puramente visual, por eso vive aquí en vez
+       de en register.js (que solo maneja la lógica de negocio del registro). -->
+  <script>
+    const eyeOpenPath = `
+      <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+    `;
+    const eyeClosedPath = `
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+    `;
+
+    // Función reutilizable: recibe los IDs del botón, el input y el ícono, y arma el toggle.
+    function setupPasswordToggle(buttonId, inputId, iconId) {
+      const button = document.getElementById(buttonId);
+      const input = document.getElementById(inputId);
+      const icon = document.getElementById(iconId);
+
+      button.addEventListener('click', () => {
+        const isHidden = input.type === 'password';
+        input.type = isHidden ? 'text' : 'password';
+        icon.innerHTML = isHidden ? eyeClosedPath : eyeOpenPath;
+        button.setAttribute('aria-label', isHidden ? 'Ocultar contraseña' : 'Mostrar contraseña');
+      });
+    }
+
+    setupPasswordToggle('toggle-password', 'password', 'toggle-password-icon');
+    setupPasswordToggle('toggle-confirm-password', 'confirm-password', 'toggle-confirm-password-icon');
+  </script>
+
+  <script src="js/register.js"></script>
+</body>
+</html>

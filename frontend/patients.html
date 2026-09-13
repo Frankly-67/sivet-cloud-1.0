@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <title>SIVET CLOUD - Pacientes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } };
+  </script>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800 antialiased">
+
+  <div class="flex h-screen overflow-hidden">
+
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/40 z-20 hidden"></div>
+
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 w-64 bg-gray-900 text-gray-300 flex flex-col transform -translate-x-full transition-transform duration-200 ease-in-out md:relative md:translate-x-0">
+      <div class="h-16 flex items-center justify-between px-6 border-b border-gray-800 shrink-0">
+        <img src="images/logo.png" alt="SIVET CLOUD" class="h-9 w-auto" />
+        <button id="sidebar-close" class="md:hidden text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded" aria-label="Cerrar menú">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+      </div>
+      <nav class="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+        <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-colors">
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75" /></svg>
+          Panel principal
+        </a>
+        <a href="veterinarians.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-colors">
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+          Veterinarios
+        </a>
+        <a href="patients.html" class="flex items-center gap-3 px-3 py-2 rounded-lg bg-blue-600 text-white font-medium">
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>
+          Pacientes
+        </a>
+        <a href="appointments.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-colors">
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+          Citas
+        </a>
+        <a href="medical-records.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-colors">
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z" /></svg>
+          Historial médico
+        </a>
+      </nav>
+      <div class="px-6 py-4 border-t border-gray-800 text-xs text-gray-500 shrink-0">SIVET CLOUD — Proyecto de grado SENA</div>
+    </aside>
+
+    <div class="flex-1 flex flex-col overflow-hidden">
+      <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 md:px-8 shrink-0">
+        <div class="flex items-center gap-4">
+          <button id="sidebar-toggle" class="md:hidden text-gray-500 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded" aria-label="Abrir menú">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" /></svg>
+          </button>
+          <h1 class="text-lg font-semibold text-gray-900">Pacientes</h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <span id="user-name" class="text-sm text-gray-500 hidden sm:inline"></span>
+          <button id="logout-btn" class="text-sm font-medium text-gray-600 border border-gray-300 rounded-lg px-3 py-1.5 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">Cerrar sesión</button>
+        </div>
+      </header>
+
+      <main class="flex-1 overflow-y-auto p-4 md:p-8">
+
+        <div class="flex items-center justify-between mb-4 gap-4">
+          <input
+            type="text" id="search-input" placeholder="Buscar por nombre de la mascota..."
+            class="w-full max-w-xs px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+          <button id="patient-new-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm rounded-lg px-4 py-2.5 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shrink-0">
+            + Nuevo paciente
+          </button>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-4">
+          <table class="w-full text-sm">
+            <thead class="bg-gray-50 border-b border-gray-100">
+              <tr>
+                <th class="text-left font-medium text-gray-600 px-4 py-3">Mascota</th>
+                <th class="text-left font-medium text-gray-600 px-4 py-3">Especie</th>
+                <th class="text-left font-medium text-gray-600 px-4 py-3">Raza</th>
+                <th class="text-left font-medium text-gray-600 px-4 py-3">Propietario</th>
+                <th class="text-left font-medium text-gray-600 px-4 py-3">Teléfono</th>
+                <th class="text-left font-medium text-gray-600 px-4 py-3">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="patient-table-body" class="divide-y divide-gray-100">
+              <!-- Filas insertadas dinámicamente desde js/patients.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button id="prev-page-btn" class="text-sm font-medium text-gray-600 border border-gray-300 rounded-lg px-4 py-2 hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">&larr; Anterior</button>
+          <span id="page-info" class="text-sm text-gray-500"></span>
+          <button id="next-page-btn" class="text-sm font-medium text-gray-600 border border-gray-300 rounded-lg px-4 py-2 hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">Siguiente &rarr;</button>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: Crear / Editar paciente ================= -->
+  <div id="patient-modal" class="fixed inset-0 z-40 hidden items-center justify-center bg-black/50 p-4 opacity-0 transition-opacity duration-200">
+    <div id="patient-modal-panel" class="bg-white rounded-xl shadow-lg w-full max-w-lg p-6 transform opacity-0 scale-95 transition-all duration-200 max-h-[90vh] overflow-y-auto">
+
+      <div class="flex items-center justify-between mb-4">
+        <h2 id="patient-modal-title" class="text-lg font-semibold text-gray-900">Nuevo paciente</h2>
+        <button type="button" id="patient-modal-close" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded" aria-label="Cerrar">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+      </div>
+
+      <form id="patient-form">
+        <input type="hidden" id="patient-id" value="" />
+
+        <div class="grid grid-cols-1 gap-4 mb-4">
+          <div>
+            <label for="patient-name" class="block text-sm font-medium text-gray-700 mb-1">Nombre de la mascota</label>
+            <input type="text" id="patient-name" required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+          </div>
+          <div>
+            <label for="patient-species" class="block text-sm font-medium text-gray-700 mb-1">Especie</label>
+            <input type="text" id="patient-species" placeholder="Perro, Gato, Ave..." required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+          </div>
+          <div>
+            <label for="patient-breed" class="block text-sm font-medium text-gray-700 mb-1">Raza</label>
+            <input type="text" id="patient-breed" placeholder="Opcional" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+          </div>
+          <div>
+            <label for="patient-weight" class="block text-sm font-medium text-gray-700 mb-1">Peso (kg)</label>
+            <input type="number" id="patient-weight" step="0.1" min="0" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+          </div>
+          <div>
+            <label for="patient-owner-name" class="block text-sm font-medium text-gray-700 mb-1">Nombre del propietario</label>
+            <input type="text" id="patient-owner-name" required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+          </div>
+          <div>
+            <label for="patient-owner-phone" class="block text-sm font-medium text-gray-700 mb-1">Teléfono del propietario</label>
+            <input type="text" id="patient-owner-phone" required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+          </div>
+          <div>
+            <label for="patient-owner-email" class="block text-sm font-medium text-gray-700 mb-1">Correo del propietario</label>
+            <input type="email" id="patient-owner-email" placeholder="Opcional" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+          </div>
+        </div>
+
+        <div class="flex justify-end gap-3">
+          <button type="button" id="patient-modal-cancel" class="text-sm font-medium text-gray-600 border border-gray-300 rounded-lg px-5 py-2.5 hover:bg-gray-50 transition-colors">Cancelar</button>
+          <button type="submit" id="patient-submit-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm rounded-lg px-5 py-2.5 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Crear paciente</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebarClose = document.getElementById('sidebar-close');
+    function openSidebar() { sidebar.classList.remove('-translate-x-full'); sidebarOverlay.classList.remove('hidden'); }
+    function closeSidebar() { sidebar.classList.add('-translate-x-full'); sidebarOverlay.classList.add('hidden'); }
+    sidebarToggle.addEventListener('click', openSidebar);
+    sidebarClose.addEventListener('click', closeSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+  </script>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/confirm.js"></script>
+  <script src="js/patients.js"></script>
+</body>
+</html>
